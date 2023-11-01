@@ -8,5 +8,20 @@ public class caixaEletronico {
         String[] numerosContas = new String[10];
         String[] nomesTitulares = new String[10];
         double[] saldos = new double[10];
+
+        while (true){ // Inicia um loop que mantém o programa em execução
+            System.out.println("Bem vindo ao Caixa Eletrônico!");
+            System.out.println("1. Cadastrar Conta");
+            System.out.println("2. Depositar");
+            System.out.println("3. Sacar");
+            System.out.println("4. Consultar Saldo");
+            System.out.println("5. Encerrar Programa");
+            System.out.print("Escolha uma opção: ");
+
+            int opcao = scanner.nextInt();
+        }
+
+
+
     }
 }
