@@ -20,7 +20,6 @@ public class caixaEletronico {
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
 
-
         } while (opcao != 5);
     }
 
