@@ -10,19 +10,19 @@ public class caixaEletronico {
         double[] saldos = new double[10];
 
         int opcao;
-        do {
-            System.out.println("Bem-vindo ao Caixa Eletrônico!");
+        do { // Inicia um loop que mantém o programa em execução
+            System.out.println("Bem-vindo ao Caixa Eletrônico!"); // Exibe um cabeçalho
             System.out.println("1. Cadastrar Conta");
-            System.out.println("2. Depositar");
-            System.out.println("3. Sacar");
-            System.out.println("4. Consultar Saldo");
-            System.out.println("5. Encerrar Programa");
-            System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
+            System.out.println("2. Consultar Saldo");
+            System.out.println("3. Realizar Depósito");
+            System.out.println("4. Realizar Saque");
+            System.out.println("5. Sair");
+            System.out.print("Escolha uma opção: "); // Exibe as opções do menu e solicita uma escolha
+
+            opcao = scanner.nextInt(); // Lê a escolha do usuário
 
         } while (opcao != 5);
-    }
-
 
 
     }
+}
