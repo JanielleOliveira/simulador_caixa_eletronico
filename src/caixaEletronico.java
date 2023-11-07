@@ -21,7 +21,7 @@ public class caixaEletronico {
             System.out.println("3. Consultar Saldo");
             System.out.println("4. Realizar Saque");
             System.out.println("5. Deletar Conta"); // Opção adicionada para deletar uma conta
-            System.out.println("6. Sair");
+            System.out.println("6. Sair do Sistema");
             System.out.print("Escolha uma opção: "); // Exibe as opções do menu e solicita uma escolha
 
             opcao = scanner.nextInt(); // Lê a escolha do usuário
@@ -118,10 +118,10 @@ public class caixaEletronico {
     private static void salvarDados(String[] numerosContas, String[] nomesTitulares, double[] saldos) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("contas.txt"));
-            for (int i = 0; i < numerosContas.length; i++) {
+            for (int i = 1; i < numerosContas.length; i++) {
                 if (numerosContas[i] != null) {
                     // Formatar uma linha de dados no formato "número da conta: nome do titular, saldo"
-                    String line = numerosContas[i] + ": " + nomesTitulares[i] + "," + saldos[i];
+                    String line = numerosContas[i] + ": " + nomesTitulares[i] + ", " + saldos[i];
                     // Escrever a linha no arquivo e incluir uma quebra de linha
                     writer.write(line);
                     writer.newLine();
@@ -138,7 +138,7 @@ public class caixaEletronico {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("contas.txt"));
             String line;
-            int i = 0; // Inicializar um contador para percorrer os arrays
+            int i = 1; // Inicializar um contador para percorrer os arrays
 
             // Enquanto houver linhas no arquivo
             while ((line = reader.readLine()) != null) {

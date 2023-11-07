@@ -1,5 +1,6 @@
-2: Hinata,500.0
-5: Jake,800.0
-25: Olaf,6000.0
-45: Naruto Uzumaki,89900.0
-7: Jane Oliver,100000.0
+1: Jane Oliver Brito, 540510.0
+2: Hinata, 25000.0
+3: Luffy, 85000.0
+4: Naruto Uzumaki, 55300.0
+5: Chris Martin, 558140.0
+6: Jane, 155.0
