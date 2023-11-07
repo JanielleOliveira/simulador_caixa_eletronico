@@ -6,9 +6,9 @@ public class caixaEletronico {
         Scanner scanner = new Scanner(System.in);
 
         // Inicializando arrays para armazenar dados da conta
-        String[] numerosContas = new String[100];
-        String[] nomesTitulares = new String[100];
-        double[] saldos = new double[100];
+        String[] numerosContas = new String[50];
+        String[] nomesTitulares = new String[50];
+        double[] saldos = new double[50];
 
         // Carregar dados a partir do arquivo "contas.txt" (leitura)
         carregarDados(numerosContas, nomesTitulares, saldos);
@@ -20,7 +20,8 @@ public class caixaEletronico {
             System.out.println("2. Realizar Depósito");
             System.out.println("3. Consultar Saldo");
             System.out.println("4. Realizar Saque");
-            System.out.println("5. Sair");
+            System.out.println("5. Deletar Conta"); // Opção adicionada para deletar uma conta
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: "); // Exibe as opções do menu e solicita uma escolha
 
             opcao = scanner.nextInt(); // Lê a escolha do usuário
@@ -39,13 +40,16 @@ public class caixaEletronico {
                     sacar(scanner, saldos); // chama a função para sacar
                     break;
                 case 5:
+                    deletarConta(scanner, numerosContas, nomesTitulares, saldos); // Caso adicionado para deletar conta
+                    break;
+                case 6:
                     salvarDados(numerosContas, nomesTitulares, saldos); // chama a função  para salvar os dados (escrita)
                     System.out.println("Programa encerrado.");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente."); // Trata escolhas inválidas
             }
-        } while (opcao != 5);
+        } while (opcao != 6);
     }
 
     // Função para cadastrar uma conta
@@ -95,6 +99,21 @@ public class caixaEletronico {
         }
     }
 
+    // Implementação da função para deletar uma conta (nova função)
+    private static void deletarConta(Scanner scanner, String[] numerosContas, String[] nomesTitulares, double[] saldos) {
+        System.out.print("Digite o número da conta a ser deletada: ");
+        int numeroConta = scanner.nextInt();
+        if (numerosContas[numeroConta] != null) {
+            numerosContas[numeroConta] = null;
+            nomesTitulares[numeroConta] = null;
+            saldos[numeroConta] = 0.0; // Opcional: definir saldo como zero
+            System.out.println("Conta deletada com sucesso.");
+        } else {
+            System.out.println("Conta não encontrada.");
+        }
+    }
+
+
     // Função para salvar dados em um arquivo
     private static void salvarDados(String[] numerosContas, String[] nomesTitulares, double[] saldos) {
         try {
@@ -113,6 +132,7 @@ public class caixaEletronico {
             System.out.println("Erro ao salvar os dados das contas.");
         }
     }
+
     // Função para carregar dados a partir de um arquivo de texto
     private static void carregarDados(String[] numerosContas, String[] nomesTitulares, double[] saldos) {
         try {
@@ -123,12 +143,15 @@ public class caixaEletronico {
             // Enquanto houver linhas no arquivo
             while ((line = reader.readLine()) != null) {
                 // Dividir a linha em partes usando vírgula como separador
-                String[] parts = line.split(",");
+                String[] parts = line.split(":");
+
                 // Armazenar número da conta, nome do titular e saldo nos arrays apropriados
                 numerosContas[i] = parts[0];
-                nomesTitulares[i] = parts[1];
-                saldos[i] = Double.parseDouble(parts[2]);
+                String[] titularESaldo = parts[1].split(","); // Separar o nome do titular e o saldo
+                nomesTitulares[i] = titularESaldo[0].trim(); // Remover espaços em branco em excesso (trim();)
+                saldos[i] = Double.parseDouble(titularESaldo[1].trim()); // Remover espaços e converter para double
                 i++; // Incrementar o contador
+
             }
             reader.close();  // Fechar o BufferedReader para liberar recursos
         } catch (IOException e) {
