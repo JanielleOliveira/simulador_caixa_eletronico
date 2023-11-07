@@ -1,0 +1,5 @@
+0: Jane Oliver,1000005.0
+1: Naruto Uzumaki,10000.0
+2: Hinata,500000.0
+3: Luffy,6000.0
+4: Jake,1005.0
