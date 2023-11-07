@@ -10,6 +10,7 @@
 
 - Cadastro de Contas: O sistema deve permitir aos usuários cadastrar contas bancárias com informações como número da conta, nome do titular e saldo inicial.
 - Operações Bancárias: O sistema deve possibilitar a realização de operações bancárias básicas, incluindo depósito, saque e consulta de saldo.
+- Deletar Dados: O sistema deve possibilitar a opção de deletar a conta.
 - Menu Interativo: O sistema deve ter um menu interativo que permite aos usuários escolher entre as operações disponíveis.
 - Exibição de Saldo: Após cada operação, o sistema deve mostrar o saldo atual da conta para o usuário.
 - Encerramento do Programa: O sistema deve fornecer a opção de encerrar o programa ou permitir que os usuários realizem mais operações.
